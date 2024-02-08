@@ -2,6 +2,7 @@
 import numpy as np
 
 from implementations import Linear
+from implementations import Sigmoid
 from implementations import Sequence
 from implementations import NeuralNetwork
 
@@ -20,9 +21,13 @@ print(f"Output: {y}")
 
 layers = Sequence([
     Linear(in_features, 10),
+    Sigmoid(10),
     Linear(10, 100),
+    Sigmoid(100),
     Linear(100, 100),
+    Sigmoid(100),
     Linear(100, out_features),
+    Sigmoid(out_features),
 ])
 
 nn = NeuralNetwork(layers)
