@@ -3,6 +3,7 @@ import setuptools
 
 core_requirements = [
     "numpy",
+    "matplotlib",
 ]
 
 setuptools.setup(

@@ -13,12 +13,12 @@ class Linear(Transformation):
         self.in_features = in_features
         self.out_features = out_features
         self.weights = np.random.randn(in_features, out_features)
-        self.biases = np.random.randn(in_features)
+        self.biases = np.random.randn(out_features)
 
     def forward(self, x):
         """Forward pass."""
         assert (
             len(x) == self.in_features
         ), "Length of input must equal length of weights."
-        y =  np.matmul(x + self.biases, self.weights)
+        y =  np.matmul(x, self.weights) + self.biases
         return y

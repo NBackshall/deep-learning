@@ -15,14 +15,14 @@ class Perceptron:
         self.bias = np.random.random()
         self.learning_rate = learning_rate
 
-    def forward(self, x):
+    def forward(self, x: np.ndarray):
         """Forward pass of perceptron
 
         Args:
             x (float): Input into perceptron.
         """
         assert (
-            len(x) == len(self.weights)
-        ), "Length of input must equal length of weights."
+            x.shape[-1] == self.weights.shape[0]
+        ), f"For x * w: ab x bd, but x: {x.shape} and w: {self.weights.shape}."
         y = self.bias + np.matmul(x, self.weights)
         return y
